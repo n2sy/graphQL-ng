@@ -1,0 +1,28 @@
+<div class="container">
+
+
+<h2>Create Quote</h2>
+<label for="quote">Quote</label>
+<input #q type="text" class="form-control" id="quote">
+<label for="author">Author</label>
+<input #a type="text" class="form-control" id="author">
+<button class="btn btn-primary" (click)="createQuote(q.value, a.value)">Add +</button>
+
+<h1>Quotes</h1>
+<ul class="list-group-item">
+  <li *ngFor="let q of quotes | async">
+    <div class="row">
+      <div class="col-md-8">
+        {{ q.text }} | {{ q.author }}
+  
+      </div>
+      <div class="col-md-2">
+        <button class="btn btn-danger" (click)="deleteQuote(q._id)">Delete</button>
+      </div>
+      
+    </div>
+    <hr>
+  </li>
+</ul>
+
+</div>
